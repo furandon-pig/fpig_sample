@@ -3,6 +3,11 @@
 import java.util.Calendar;
 
 public class Today {
+
+    private static String week_list[] = {
+        "日", "月", "火", "水", "木", "金", "土"
+    };
+
     Calendar cal = null;
 
     Today() {
@@ -17,6 +22,9 @@ public class Today {
         sb.append("月");
         sb.append(cal.get(Calendar.DATE));
         sb.append("日");
+        sb.append("(");
+        sb.append(week_list[cal.get(Calendar.DAY_OF_WEEK) - 1]);
+        sb.append(")");
         return sb.toString();
     }
 }
