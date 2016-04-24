@@ -25,6 +25,7 @@ public class HelloGUI {
         p.add(btn2);
 
         frame.getContentPane().add(p);
+        frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
     }
