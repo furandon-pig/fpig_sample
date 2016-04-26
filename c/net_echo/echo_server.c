@@ -14,7 +14,7 @@ int create_server(const char *hostname, const char *server_port,
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_flags = AI_PASSIVE;
 
-	error = getaddrinfo(NULL, server_port, &hints, &res0);
+	error = getaddrinfo(hostname, server_port, &hints, &res0);
 	if (error) {
 		fprintf(stderr, "getaddrinfo() fail: %s", gai_strerror(error));
 		return -1;
@@ -150,17 +150,38 @@ int server_loop(conn_info_t *conn)
 
 int main(int argc, char *argv[])
 {
-	int r;
+	char *interface = NULL;
+	char *port = ECHO_PORT;
 	conn_info_t conn;
+	int r, ch;
+
+	/*
+	 * $ ./echo_server -i <addr> -p <port>
+	 */
+	while ((ch = getopt(argc, argv, "i:p:")) != -1) {
+		switch (ch) {
+			case 'i':
+				interface = optarg;
+				break;
+			case 'p':
+				port = optarg;
+				break;
+			case '?':
+			default:
+				break;
+		}
+	}
+	argc -= optind;
+	argv += optind;
 
 	memset(&conn, 0, sizeof(conn));
 
-	r = create_server(NULL, ECHO_PORT, &conn);
+	printf("listen %s:%s\n", (interface ? interface : "*"), port);
+
+	r = create_server(interface, port, &conn);
 	if (r == -1) {
 		return 0;
 	}
-
-	printf("listen port= %s\n", ECHO_PORT);
 
 	server_loop(&conn);
 
