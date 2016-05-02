@@ -30,7 +30,7 @@ public class Counter {
     JButton button = null;
 
     Counter() {
-        count = 0;
+        reset();
 
         frame = new JFrame("Counter");
 
@@ -71,6 +71,11 @@ public class Counter {
         frame.setVisible(true);
     }
 
+    private void reset() {
+        count = 0;
+        result.setText(Integer.toString(count));
+    }
+
     public static void main(String... args) {
         new Counter();
     }
@@ -82,8 +87,7 @@ public class Counter {
                 System.exit(0);
             }
             if (ae.getSource() == item2_1) {
-                count = 0;
-                result.setText(Integer.toString(count));
+                reset();
             }
             if (ae.getSource() == button) {
                 count++;
