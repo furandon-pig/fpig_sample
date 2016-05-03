@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <title>setTimeout Sample</title>
+      <script src="app.js"></script>
+    </head>
+    <style>
+      .result {
+        border: thin solid;
+        border-radius: 4px;
+        padding: 10px;
+      }
+    </style>
+    <body>
+      <p>
+        <label>
+          <input id="ui_check1" type="checkbox">
+          Enable setTimeout
+        </label>
+      </p>
+      <p>
+        <label>Interval</label>
+        <select id="ui_select1" name="interval" onselect="APP.set_timer_event()">
+          <option value="1">1ms</option>
+          <option value="10">10ms</option>
+          <option value="50">50ms</option>
+          <option value="100" selected>100ms</option>
+          <option value="150">150ms</option>
+          <option value="200">200ms</option>
+          <option value="250">250ms</option>
+        </select>
+      </p>
+      <p>
+        <label id="ui_label1" class="result"></label>
+      </p>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
