@@ -30,8 +30,6 @@ public class Counter {
     JButton button = null;
 
     Counter() {
-        reset();
-
         frame = new JFrame("Counter");
 
         menubar = new JMenuBar();
@@ -63,6 +61,8 @@ public class Counter {
 
         p.add(result, BorderLayout.CENTER);
         p.add(button, BorderLayout.SOUTH);
+
+        reset();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(p);
