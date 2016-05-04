@@ -1,0 +1,9 @@
+# Install sinatra
+
+```
+$ gem search sinatra
+$ sudo gem install sinatra
+$ gem list | grep sinatra 
+sinatra (1.4.7)
+```
+
