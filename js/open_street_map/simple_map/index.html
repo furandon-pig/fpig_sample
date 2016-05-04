@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple Map</title>
+        <script src="app.js"></script>
+      <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
+      <style>
+        .map {
+          height: 400px;
+        }
+      </style>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+      <!-- OpenStreetMap -->
+      <script src="http://openlayers.org/en/v3.15.1/build/ol.js" type="text/javascript"></script>.
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <div class="row">
+        <div class="col-md-12 form-inline form-group">
+          <label>Layer:&nbsp;</label>
+          <select id="ui_layer" class="form-control" onchange="APP.update()">
+            <option value="default" selected>default</option>
+            <option value="osm">osm</option>
+            <option value="sat">sat</option>
+            <option value="hyb">hyb</option>
+          </select>
+          <span style="margin-left:40px;">
+          <label>Top:&nbsp;</label>
+          <input id="ui_top" type="text" class="form-control" style="width:120px;">
+          <label>Bottom:&nbsp;</label>
+          <input id="ui_bottom" type="text" class="form-control" style="width:120px;">
+          <span style="margin-left:40px;">
+          <label>Left:&nbsp;</label>
+          <input id="ui_left" type="text" class="form-control" style="width:120px;">
+          <label>Right:&nbsp;</label>
+          <input id="ui_right" type="text" class="form-control" style="width:120px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map" class="map"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="mouse-position"></div>
+        </div>
+      </div>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
