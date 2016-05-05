@@ -1,10 +1,15 @@
 /* Hello.cs */
 
-public class Hello
+using System;
+
+namespace Hello
 {
-  public static void Main()
+  public class Hello
   {
-    System.Console.WriteLine("Hello,World.");
+    public static void Main()
+    {
+      Console.WriteLine("Hello,World.");
+    }
   }
 }
 
