@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>localStorage Sample</title>
+        <script src="app.js"></script>
+      <style>
+        .row {
+          margin-top: 4px;
+        }
+      </style>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">localStorage Sample</a>
+          </div>
+        </div>
+      </nav>
+      <!-- contents -->
+      <div style="margin-top:50px;"></div>
+      <div class="container theme-showcase" role="main">
+        <div class="row"> 
+          <div class="col-md-6 form-group form-inline">
+            <ul>
+              <li><a href="https://www.w3.org/TR/2016/REC-webstorage-20160419/">Web Storage(Second Edition)</a>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 from-group form-inline">
+            <label>text:&nbsp;</label>
+            <input id="ui_text" type="text" class="form-control">
+            <button class="btn btn-primary" onclick="APP.saveData()">save</button>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-6 form-group form-inline">
+            <button class="btn btn-warning" onclick="APP.clearData()">clear localStorage data</button>
+          </div>
+        </div>
+      </div>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
