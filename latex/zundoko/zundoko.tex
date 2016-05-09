@@ -1,0 +1,49 @@
+\documentclass[twocolumn,10pt]{jarticle}
+\input random
+
+\newcount\za
+\newcount\zb
+\newcount\zc
+\newcount\zd
+\newcount\ze
+\newcount\zsum
+
+\newcommand\zstr[1]{
+  \ifnum #1=1 ズン \else ドコ \fi
+}
+
+\newcount\J
+\newcommand\zundoko{
+  \J=0
+  \loop\ifnum\J=0
+    \setrannum\za{1}{2}
+    \setrannum\zb{1}{2}
+    \setrannum\zc{1}{2}
+    \setrannum\zd{1}{2}
+    \setrannum\ze{1}{2}
+
+    \zstr{\za}\zstr{\zb}\zstr{\zc}\zstr{\zd}\zstr{\ze}
+
+    \multiply \za by 1
+    \multiply \zb by 10
+    \multiply \zc by 100
+    \multiply \zd by 1000
+    \multiply \ze by 10000
+
+    \zsum=0
+    \advance \zsum by \za
+    \advance \zsum by \zb
+    \advance \zsum by \zc
+    \advance \zsum by \zd
+    \advance \zsum by \ze
+
+    \ifnum\zsum=21111
+      キ・ヨ・シ！
+      \advance\J by1
+    \fi
+  \repeat
+}
+
+\begin{document}
+\zundoko
+\end{document}
