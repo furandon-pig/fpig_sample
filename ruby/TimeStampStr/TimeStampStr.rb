@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # coding: utf-8
 
-:a!
-
 require 'date'
 def getTimeStamp()
   mon_elm = [
