@@ -8,7 +8,7 @@ app.controller('AppController', ['$scope',
 
         // initialize
         $scope.init = function() {
-          $scope.message = "Hello,World.";
+          $scope.uiText = "Hello,World.";
 
           $scope.items = [
             { id: idx++, name: "apple"  },
@@ -29,6 +29,15 @@ app.controller('AppController', ['$scope',
               break;
             }
           }
+        }
+
+        $scope.openDialog = function() {
+          $scope.uiDlgText = $scope.uiText;
+        }
+
+        $scope.closeDialog = function() {
+          $scope.uiText = $scope.uiDlgText;
+          $('#modal1').modal('hide');
         }
 
         $scope.init();
