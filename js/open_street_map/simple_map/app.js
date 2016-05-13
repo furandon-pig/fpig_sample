@@ -61,7 +61,10 @@ APP = (function(){
         attributionOptions: ({
           collapsible: false
         })
-      }).extend([mousePositionControl]),
+      }).extend([
+        mousePositionControl,
+        new ol.control.ScaleLine()
+      ]),
       layers: [
         new ol.layer.Tile(tileArgs)
       ],
