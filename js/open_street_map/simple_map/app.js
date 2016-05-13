@@ -51,6 +51,10 @@ APP = (function(){
       };
     }
 
+    var view = new ol.View({
+      center: ol.proj.fromLonLat([139.7724, 35.6193]),
+      zoom: 17
+    });
     var mapobj = new ol.Map({
       target: 'map',
       controls: ol.control.defaults({
@@ -61,10 +65,7 @@ APP = (function(){
       layers: [
         new ol.layer.Tile(tileArgs)
       ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
-      })
+      view: view
     });
 
     mapobj.on('moveend', function(evt) {
