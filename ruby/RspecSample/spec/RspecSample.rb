@@ -16,5 +16,10 @@ describe 'arithmetic test' do
       (1 + 1) == 2
     end
   end
+  context 'subtract' do
+    it 'sub test' do
+      (1 - 2) == -1
+    end
+  end
 end
 
