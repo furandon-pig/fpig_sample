@@ -6,5 +6,7 @@ begin
 rescue Exception => e
   puts e.message
   puts e.backtrace.inspect
+ensure
+  puts '-=> encure'
 end
 
