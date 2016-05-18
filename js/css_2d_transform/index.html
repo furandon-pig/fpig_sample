@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <title>CSS3 2D Transform Sample</title>
+      <script src="app.js"></script>
+      <style>
+        body { padding: 30px }
+        #rotate_sample {
+          margin-left: 100px;
+          margin-top: 80px;
+            /*
+          height: 60px;
+          width: 100px;
+          transform-origin: 40px 40px;
+            */
+          transform: rotate(-45deg);
+        }
+        .mystyle {
+          background: skyblue;
+          padding: 40px;
+          height: 80px;
+          width:  80px;
+          border: thin solid 3px;
+          border-radius: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      <p>
+      回転角<input type="range" id="ui_range" min="0" max="360" oninput="APP.update()">
+      <span id="ui_angle"></span>
+      </p>
+      <p>
+        <ul>
+          <li>input type="range"はoninputでリアルタイムな値の変化を取得できる。
+          <li>onchangeの場合は、マウスを離した時にイベントが発火する。
+        </ul>
+      </p>
+      <p id="rotate_sample">
+        <span class="mystyle"><span>
+      </p>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
