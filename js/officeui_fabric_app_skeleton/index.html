@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <title>Office UI Fabric Application</title>
+      <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.2.0/fabric.min.css">
+      <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.2.0/fabric.components.min.css">
+      <script src="app.js"></script>
+    </head>
+    <!--
+      Office UI Fabricサンプル
+      http://furandon_pig.bitbucket.org/sample/officeui/
+    -->
+    <body>
+      <div class="ms-Grid-col ms-u-sm6 ms-u-md8 ms-u-lg12">
+        <button class="ms-Button ms-Button--primary" onclick="APP.jsDialog()">
+          <span class="ms-Button-label">hello</span>
+        </button>
+      </div>
+      <!-- Dialog Box -->
+      <div class="ms-Dialog" id="dialog1" style="visibility:hidden;">
+        <div class="ms-Overlay">
+          <div class="ms-Dialog-main">
+            <div class="ms-Dialog-header">
+              <p class="ms-Dialog-title">タイトル</p>
+            </div>
+            <div class="ms-Dialog-inner">
+              <div class="ms-Dialog-content">
+                <label class="ms-Label">
+                  Hello,Dialog.
+                </label>
+              </div>
+              <div class="ms-Dialog-actions">
+                <div class="ms-Dialog-actionsRight">
+                  <button class="ms-Dialog-action ms-Button ms-Button--primary" onclick="APP.closeByOK()">
+                    <span class="ms-Button-label">OK</span>
+                  </button>
+                  <button class="ms-Dialog-action ms-Button" onclick="APP.closeByCancel()">
+                    <span class="ms-Button-label">Cancel</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
