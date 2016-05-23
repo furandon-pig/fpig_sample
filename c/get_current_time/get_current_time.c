@@ -6,23 +6,23 @@
 
 int main(int argc, char *argv[])
 {
-        time_t tval;
-        char buf[BUFSIZ], *s;
+	time_t tval;
+	char buf[BUFSIZ], *s;
 	struct tm *t;
 
-        time(&tval);
+	time(&tval);
 	t= localtime(&tval);
 
 	s = buf;
 
-        s += strftime(s, BUFSIZ, "%G/", t);
-        s += strftime(s, BUFSIZ, "%m/", t);
-        s += strftime(s, BUFSIZ, "%d ", t);
-        s += strftime(s, BUFSIZ, "%H:", t);
-        s += strftime(s, BUFSIZ, "%M:", t);
-        s += strftime(s, BUFSIZ, "%S", t);
+	s += strftime(s, BUFSIZ, "%G/", t);
+	s += strftime(s, BUFSIZ, "%m/", t);
+	s += strftime(s, BUFSIZ, "%d ", t);
+	s += strftime(s, BUFSIZ, "%H:", t);
+	s += strftime(s, BUFSIZ, "%M:", t);
+	s += strftime(s, BUFSIZ, "%S", t);
 
 	puts(buf);
 
-        return 0;
+	return 0;
 }
