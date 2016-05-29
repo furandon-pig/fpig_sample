@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <title>index.html</title>
+      <script src="app.js"></script>
+      <style>
+        .dnd_area {
+          padding: 8px;
+          border: thin solid;
+          border-radius: 4px;
+          width: 200px;
+          height: 180px;
+          margin-bottom: 4px;
+        }
+        .ui_handle {
+          padding: 8px;
+          border-radius: 4px;
+          background: skyblue;
+        }
+      </style>
+    </head>
+    <body>
+      <div>
+        <table>
+          <tr>
+            <td>
+              <div id="dnd1" class="dnd_area" draggable="true" ondragover="APP.dragover(event)" ondrop="APP.drop(event)">
+                <span id="ui_item" class="ui_handle" draggable="true" dropzone="copy" ondragstart="APP.start(event)">
+                  <button onclick="APP.btn_click()">Hello,World.</button>
+                </span>
+              </div>
+            </td>
+            <td>
+              <!-- ondragover(),ondrop()の2つのイベントをハンドリングする必要あり -->
+              <div id="dnd2" class="dnd_area" draggable="true" ondragover="APP.dragover(event)" ondrop="APP.drop(event)">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <textarea rows="8" cols="70"></textarea>
+      </div>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
