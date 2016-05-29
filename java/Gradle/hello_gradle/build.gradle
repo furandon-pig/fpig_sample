@@ -1,0 +1,17 @@
+/* build.gradle */
+
+/*
+ * # '-q' option suppress build log message
+ * $ gradle -q hello
+ */
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+task hello_alt << {
+    println 'Hello world!(alt)'
+}
+
