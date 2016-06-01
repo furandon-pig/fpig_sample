@@ -24,14 +24,15 @@ APP = (function(){
     var transObj = JSON.parse(event.dataTransfer.getData("text"));
     var elm = document.getElementById(transObj.id);
 
-    var drag_elm = elm.cloneNode(true);
-    drag_elm.setAttribute('class', 'ui_handle');
-    event.currentTarget.appendChild(drag_elm);
-
     // dnd元の要素を削除する
     var src_node = document.getElementById(transObj.src_id);
     var src_node_child = document.getElementById(transObj.id);
     src_node.removeChild(src_node_child);
+
+    // 新しい要素を追加する
+    var drag_elm = elm.cloneNode(true);
+    drag_elm.setAttribute('class', 'ui_handle');
+    event.currentTarget.appendChild(drag_elm);
 
     event.preventDefault();
   }
