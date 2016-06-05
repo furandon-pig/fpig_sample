@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>WebAPI APP sample</title>
+        <script src="app.js"></script>
+      <style>
+        .row {
+          margin-top: 4px;
+        }
+      </style>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <!--
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+      -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Application Name</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#about">About</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Hello</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">World</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- contents -->
+      <div style="margin-top:50px;"></div>
+      <div class="container theme-showcase" role="main">
+        <div class="row"> 
+          <div class="col-md-6 form-group form-inline">
+            <button class="btn btn-primary" onclick="APP.WebAPI()">Web API</button>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-6">
+            <textarea id="ui_text" class="form-control" cols="12" style="width:100%;"></textarea>
+          </div>
+        </div>
+      </div>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
