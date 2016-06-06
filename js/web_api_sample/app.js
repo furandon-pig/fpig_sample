@@ -2,7 +2,7 @@
 
 APP = (function(){
 
-  httpRequest = null;
+  var httpRequest = null;
 
   init = function() {
     if(window.XMLHttpRequest) { // Firefox, Opera など
@@ -18,7 +18,9 @@ APP = (function(){
   }
 
   WebAPI = function() {
-    httpRequest.open('GET', 'http://localhost:38080/', true);
+    url = 'http://127.0.0.1:38080/json';
+    console.log(url);
+    httpRequest.open('GET', url, true);
     httpRequest.onreadystatechange = processResult;
     httpRequest.send(null);
   }

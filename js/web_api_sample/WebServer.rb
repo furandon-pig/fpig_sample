@@ -35,6 +35,9 @@ server.mount_proc('/json') do |req,res|
   }
   json = data.to_json
 
+  res.header["Access-Control-Allow-Origin"] = "*"
+  res.header["Access-Control-Allow-Methods"] = "*"
+
   res.content_type = 'application/json; charset=utf-8'
   res.content_length = json.length
   res.body = json
