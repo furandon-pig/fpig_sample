@@ -11,36 +11,20 @@ options = {
 }
 server = WEBrick::HTTPServer.new(options)
 
-server.mount_proc('/') do |req,res|
-  html = <<_EOS
-<html>
-  <head>
-    <title>hello</title>
-  </head>
-  <body>
-    <p>hello,world.</p>
-  </body>
-</html>
-_EOS
-  res.content_type = 'text/html'
-  res.content_length = html.length
-  res.body = html
-end
-
 # curl -s -XGET http://localhost:38080/json | jq .
-server.mount_proc('/json') do |req,res|
-  data = {
-    id: 3,
-    items: [ 'apple', 'grape', 'orange' ]
-  }
-  json = data.to_json
+[
+  { path: '/', body: [ 'apple', 'grape', 'orange' ] },
+].each do |conf|
+  server.mount_proc(conf[:path]) do |req,res|
+    json = conf[:body].to_json
 
-  res.header["Access-Control-Allow-Origin"] = "*"
-  res.header["Access-Control-Allow-Methods"] = "*"
+    res.header["Access-Control-Allow-Origin"] = "*"
+    res.header["Access-Control-Allow-Methods"] = "*"
 
-  res.content_type = 'application/json; charset=utf-8'
-  res.content_length = json.length
-  res.body = json
+    res.content_type = 'application/json; charset=utf-8'
+    res.content_length = json.length
+    res.body = json
+  end
 end
 
 trap(:INT) { server.shutdown() }
