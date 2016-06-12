@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>radio sample</title>
+        <script src="app.js"></script>
+    </head>
+    <body>
+      <div>
+        <p>
+          <label><input type="radio" name="radio_lists" value="apple" onclick="APP.choice()">アップル</label>
+        </p>
+        <p>
+          <label><input type="radio" name="radio_lists" value="grape" onclick="APP.choice()">グレープ</label>
+        </p>
+        <p>
+          <label><input type="radio" name="radio_lists" value="orange" onclick="APP.choice()">オレンジ</label>
+        </p>
+      </div>
+      <div>
+        Choiced: <span id="item"></span>
+      </div>
+    </body>
+    <script>
+      window.onload = function() {
+        APP.init();
+      }
+    </script>
+</html>
+
