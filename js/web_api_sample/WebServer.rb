@@ -13,7 +13,8 @@ server = WEBrick::HTTPServer.new(options)
 
 # curl -s -XGET http://localhost:38080/json | jq .
 [
-  { path: '/', body: [ 'apple', 'grape', 'orange' ] },
+  { path: '/',      body: [ 'apple', 'grape', 'orange' ] },
+  { path: '/hello', body: 'world' },
 ].each do |conf|
   server.mount_proc(conf[:path]) do |req,res|
     json = conf[:body].to_json
