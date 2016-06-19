@@ -1,0 +1,10 @@
+/* app.cs */
+label:after {
+  content: ' *';
+  color: #a80000;
+}
+.my-style:after {
+  content: ' *';
+  color: #a80000;
+}
+
