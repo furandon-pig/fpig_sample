@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <meta charset="utf-8" />
+        <title>Bootstrap APP sample</title>
+      <style>
+        .row {
+          margin-top: 4px;
+        }
+        .done_todo {
+          text-decoration: line-through;
+        }
+      </style>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <!--
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+      -->
+      <!-- AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <!-- My Application JS -->
+      <script src="app.js"></script>
+    </head>
+    <body ng-controller="AppController">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">ToDoサンプルアプリ</a>
+          </div>
+        </div>
+      </nav>
+      <!-- contents -->
+      <div style="margin-top:50px;"></div>
+      <div class="container theme-showcase" role="main">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-condensed">
+              <tr>
+                <th>ID</th>
+                <th><br></th>
+                <th>チェック</th>
+                <th>タイトル</th>
+                <th>メモ</th>
+                <th><br></th>
+              </td>
+              <tr ng-repeat="item in items">
+                <td>{{item.id}}</td>
+                <td>
+                  <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal1" ng-click="openDialog(item)">Edit</button>
+                </td>
+                <td><input type="checkbox" ng-checked="{{item.done}}" ng-click="toggleToDo(item)"></td>
+                <td><span style="{{getDecoration(item)}}">{{item.title}}</span></td>
+                <td><span style="{{getDecoration(item)}}">{{item.note}}</span></td>
+                <td>
+                  <button class="btn btn-warning btn-xs" ng-click="delItem(item)">削除</button>
+                </td>
+              </tr>
+            </table>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modal1" ng-click="openDialog(null)">new ToDo</button>
+          </div>
+        </div>
+      </div>
+      <!-- modal dislogs -->
+      <div id="modal1" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">ToDoの追加</h4>
+            </div>
+            <div class="modal-body">
+              <p>タイトル</p>
+              <p>
+                <input type="text" class="form-control" ng-model="uiDlgToDoTitle">
+              </p>
+              <p>メモ</p>
+              <p>
+                <textarea class="form-control" style="width:100%;" ng-model="uiDlgToDoNote"></textarea>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" ng-click="closeDialog()">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </body>
+</html>
+

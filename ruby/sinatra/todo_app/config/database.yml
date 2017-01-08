@@ -1,0 +1,15 @@
+db:
+  production:
+    adapter:  sqlite3
+    #host:     localhost
+    #username: sqlite
+    #password: sqlite
+    database: db/todo.db
+
+  development:
+    adapter:  sqlite3
+    #host:     localhost
+    #username: sqlite
+    #password: sqlite
+    database: db/todo.db
+

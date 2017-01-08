@@ -1,0 +1,10 @@
+# bundle install --path vender/bundle
+source "https://rubygems.org"
+
+gem "sinatra"
+gem "sinatra-cross_origin"
+
+gem "rake"
+gem "sqlite3"
+gem "activerecord"
+
