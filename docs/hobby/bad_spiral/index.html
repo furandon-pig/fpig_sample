@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>悪循環画像ジェネレータ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="lib/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="lib/dist/js/bootstrap.min.js">
+	</head>
+	<body>
+
+		<div class="jumbotron">
+			<h3>悪循環画像ジェネレータ</h3>
+			<p>
+			<a href="http://www.pref.miyagi.jp/kohou/kenseidayori/backnumber/201012/special/special01.htm">みやぎ県政だより(2010年10月号)</a>のポスターを元にした悪循環画像ジェネレータです。
+			</p>
+		</div>
+		<p>
+			<h4>遊びかた</h4>
+			<ul>
+				<li>以下の入力欄に書き込んだ内容がポスターに反映されます(何も入力しないと、オリジナルの文言が使用されます)。
+				<li>最初にWebページを開いた際、画像の読み込みに時間がかかる場合があります(画像がロードされるまで少し待ってみてください)。
+				<li>入力文字中の「&lt;br&gt;」は改行文字として処理されます。
+				<li>文言の先頭に空白を入れることで表示を調整できます(バッドノウハウですが...)。
+				<li>作成したポスターは右クリックで「名前を付けて保存」などでダウンロードしてください。
+				<ul>
+					<li>OS X+SafariだとHTML5 Canvasはそのまま保存できないようなので、グラブなどのツールをご利用ください。
+				</ul>
+			</ul>
+		</p>
+		<p>
+			<h4>修正履歴</h4>
+			<ul>
+				<li>最初にWebページを開いたときに画像が表示されない不具合を修正しました。@sharowさん修正案を教えていただきありがとうございます。
+				<li>スクリプトを一部修正し、コメントを追加しました。
+				<li>ご要望のあった「【依存性】」と「【耐　性】」欄の入力を行えるようにしました。
+				<ul>
+					<li>併せて「薬物依存の悪循環」が左の「図」のアイコンにめり込む感じになっていたのを修正しました。
+				</ul>
+			</ul>
+		</p>
+		<p>
+		ポスター画像のテンプレートは@paseri_dさんが作成されたものを一部加工して使用しています。テンプレートの公開ありがとうございます。<br>
+		改良のご要望等ありましたら、@furandon_pigまでお願いします(ただ、一通り作成して満足してしまったので改良とかしないかも……)。
+		</p>
+		
+		<div class="row">
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t0" oninput="refresh_poster(0)" class="form-control" placeholder="薬物依存の悪循環">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t1" oninput="refresh_poster(1)" class="form-control" placeholder="気分が<br>良くなるよ">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t2" oninput="refresh_poster(2)" class="form-control" placeholder="一度だけなら…">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t3" oninput="refresh_poster(3)" class="form-control" placeholder="薬の効力が<br>切れると……">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t4" oninput="refresh_poster(4)" class="form-control" placeholder="薬が切れた<br>薬がもうない">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t5" oninput="refresh_poster(5)" class="form-control" placeholder="早く薬を">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t6" oninput="refresh_poster(6)" class="form-control" placeholder="苦しい">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t7" oninput="refresh_poster(7)" class="form-control" placeholder="もっと<br>もっと">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t8" oninput="refresh_poster(8)" class="form-control" placeholder="薬のことしか<br>考えられなく<br>なります">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" id="t9" oninput="refresh_poster(9)" class="form-control" placeholder="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">【依存性】</span>
+					<input type="text" id="t10" oninput="refresh_poster(10)" class="form-control" placeholder="薬物を一度でも使用すると自分の意思でやめられなくなること">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">【耐　性】</span>
+					<input type="text" id="t11" oninput="refresh_poster(11)" class="form-control" placeholder="薬物を繰り返し使用するうちに体が慣れてそれまでの量では効き目が薄れてしまうこと">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-8"></div>
+			<div class="col-xs-4">
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="悪循環画像ジェネレータ http://furandon_pig.bitbucket.org/hobby/bad_spiral/" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-3"></div>
+			<div class="col-xs-6 col-sm-3">
+				<canvas id="poster" width="515" height="645"></canvas>
+			</div>
+			<div class="col-xs-6 col-sm-3"></div>
+			<div class="col-xs-6 col-sm-3"></div>
+		</div>
+
+		<script>
+			/* グローバル変数 */
+			var g_font_height = 16;		/* フォントの高さ(決め打ち...) */
+
+			var g_canvas = null;		/* Canvas要素のオブジェクト */
+			var g_context = null;		/* Canvas要素のコンテキスト */
+			var g_poster_img = null;	/* 悪循環画像のテンプレートイメージ */
+
+			var g_pos_elm = new Array();	/* 各文言データの要素 */
+
+			/* ページ読み込み完了時のハンドラ */
+			onload = function() {
+				g_canvas = document.getElementById("poster");
+				g_context = g_canvas.getContext("2d");
+
+				init_position_element();
+
+				g_poster_img = new Image();
+				g_poster_img.src = "yakubutu.png";
+				g_poster_img.onload = function() {
+					g_context.drawImage(g_poster_img, 0, 0);
+					refresh_poster(0);
+				}
+			}
+
+			/* 文言データ */
+			function pos_elm(bx, by, fs, fc, dmsg, abs_pos) {
+				this.base_x = bx;		/* 文言配置時のx座標 */
+				this.base_y = by;		/* 文言配置時のy座標 */
+				this.font_size = fs;		/* フォントサイズ */
+				this.font_color = fc;		/* フォントカラー */
+				this.default_msg = dmsg;	/* デフォルトの文言 */
+				this.is_abs_pos = abs_pos;	/* 配置の調整を行うか？ (true:行う false:行わない) */
+			}
+			/* 文言データ配列の初期化 */
+			function init_position_element() {
+				/*
+				 * 文言データのインデックスとrefresh_poster()の引数pos_elm_idxのインデックスを合わせておく点に注意。
+				 * 文言データの追加・削除を行った場合は、<input type="text" id="tXX" onchenge="refresh_poster(XX)...>を
+				 * 一緒に修正する。
+				 */
+				g_pos_elm.push(new pos_elm( 95,  60, 20, "rgb(0, 0, 0)", "薬物依存の悪循環", false));
+				g_pos_elm.push(new pos_elm( 75, 175, 14, "rgb(0, 0, 0)", "気分が<br>良くなるよ", true));
+				g_pos_elm.push(new pos_elm(320,  85, 14, "rgb(0, 0, 0)", "一度だけなら…", true));
+				g_pos_elm.push(new pos_elm(470, 330, 12, "rgb(0, 0, 0)", "薬の効力が<br>切れると……", true));
+				g_pos_elm.push(new pos_elm(333, 367, 14, "rgb(0, 0, 0)", "薬が切れた<br>薬がもうない", true));
+				g_pos_elm.push(new pos_elm(457, 540, 14, "rgb(255, 255, 255)", "早く薬を", true));
+				g_pos_elm.push(new pos_elm(437, 585, 14, "rgb(255, 255, 255)", "苦しい", true));
+				g_pos_elm.push(new pos_elm(196, 475, 14, "rgb(0, 0, 0)", "もっと<br>もっと",true ));
+				g_pos_elm.push(new pos_elm(137, 281, 12, "rgb(0, 0, 0)", "薬のことしか<br>考えられなく<br>なります", true));
+				g_pos_elm.push(new pos_elm(160, 230, 14, "rgb(0, 0, 0)", "", true));
+				g_pos_elm.push(new pos_elm( 72, 632, 10, "rgb(0, 0, 0)", "薬物を一度でも使用すると自分の意思でやめられなくなること", false));
+				g_pos_elm.push(new pos_elm( 72, 648, 10, "rgb(0, 0, 0)", "薬物を繰り返し使用するうちに体が慣れてそれまでの量では効き目が薄れてしまうこと", false));
+			}
+
+			/* 悪循環画像の更新。この関数は文言を入力する度に呼ばれる。 */
+			function refresh_poster(pos_elm_idx) {
+				g_context.drawImage(g_poster_img, 0, 0);
+				for (var i = 0; i < g_pos_elm.length; i++) {
+					var pos_elm = g_pos_elm[i];
+					var txt_form = document.getElementById("t" + i);
+					var msg;
+					if (txt_form.value == "") {
+						msg = pos_elm.default_msg;
+					} else {
+						msg = txt_form.value;
+					}
+					refresh_msg(pos_elm.base_x, pos_elm.base_y, pos_elm.font_size, pos_elm.font_color, msg, pos_elm.is_abs_pos);
+				}
+			}
+
+			/* 画像に書き込む文言の更新。 */
+			function refresh_msg(bx, by, font_size, font_color, str, abs_pos) {
+				/* <br>タグが指定されていた場合の処理 */
+				var msgs = new Array();
+				var msgs_width = new Array();
+				var mstr = str + "<br>";
+				while (mstr.match(/(.*?)<br>(.*$)/)) {
+					msgs.push(RegExp.$1);
+					mstr = RegExp.$2;
+				}
+				var max_height = g_font_height * (msgs.length + 1);	/* 描画する文字の高さ */
+
+				/* 文言のセンタリング用に文字幅を取得する。 */
+				var v;
+				for (i = 0; i < msgs.length; i++) {
+					v = g_context.measureText(msgs[i]);
+					msgs_width.push(v.width);
+				}
+
+				/* 文言の描画処理。msgs[]から配置するx,y座標を計算してから描画する。 */
+				var base_y = by - max_height / 2;
+				var y = base_y;
+				var x;
+				g_context.font = "bold " + font_size + "px 'MS Pゴシック'";
+				g_context.fillStyle = font_color;
+				for (i = 0; i < msgs.length; i++) {
+					if (abs_pos == true) {
+						x = bx - msgs_width[i] / 2;
+					} else {
+						x = bx;
+					}
+					g_context.fillText(msgs[i], x, y);
+					y += g_font_height;
+				}
+				var base_y = by - max_height / 2;
+			}
+		</script>
+
+		<script src="lib/jq/jquery.js"></script>
+		<script src="lib/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>
+
