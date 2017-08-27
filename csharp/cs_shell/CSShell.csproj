@@ -1,0 +1,19 @@
+<!-- https://msdn.microsoft.com/ja-jp/library/dd576348.aspx -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>CSShell</AssemblyName> <!-- not include ".exe" -->
+    <OutputPath>Bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+  <Compile Include="src\CSShell.cs" />
+  </ItemGroup>
+  <Target Name="Build">
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+    <Csc Sources="@(Compile)" OutputAssembly="$(OutputPath)$(AssemblyName).exe" />
+    <!--
+    <Csc Sources="@(Compile)"/>
+    -->
+  </Target>
+</Project>
+
