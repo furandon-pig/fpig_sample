@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @doc_title %></title>
+    <%= erb :header %>
+  </head>
+  <body>
+    <!-- Navigartion bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Markdown HTML rendering sample</a>
+        </div>
+      </div>
+    </nav>
+    <!-- contents -->
+    <div style="margin-top:60px;"></div>
+      <div class="container theme-showcase" role="main">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+              Redcarpetを利用したMarkdownのHTMLレンダリングサンプルです。
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit</a></li>
+              <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab" onclick="APP.preview()">Preview</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="edit">
+                <textarea id="md" rows="10" class="form-control" style="margin:6px;"># 見出し1
+
+Redcarpetを利用したMarkdownのHTMLレンダリングサンプルです。 
+
+## 見出し2
+
+| 品物 | 価格(円) |
+| --- | --- |
+| りんご | 100 |
+| みかん | 90 |
+
+```
+int main(int argc, char *argv[])
+{
+    return 0;
+}
+```
+                </textarea>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="preview">
+                <span id="preview_html"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+
