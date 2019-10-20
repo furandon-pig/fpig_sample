@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Application Template</title>
+    <style>
+      .row { margin-top: 4px; }
+    </style>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <!-- Vue.js -->
+    <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <!-- 本番バージョン、サイズと速度のために最適化されています -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    -->
+  </head>
+  <body>
+    <div id="app">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Application Template</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#about">About</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Hello</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">World</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- contents -->
+      <div style="margin-top:50px;"></div>
+      <div class="container theme-showcase" role="main">
+        <div class="row"> 
+          <div class="col-md-6 form-group form-inline">
+            <label>text:&nbsp;</label>
+            <input type="text" class="form-control" ng-model="uiText">
+            <button class="btn btn-default" data-toggle="modal" data-target="#modal1" ng-click="openDialog()">hello,world</button>
+          </div>
+        </div>
+	<!-- checkbox -->
+        <div class="row"> 
+          <div class="col-md-6"> 
+            <label><input type="checkbox" v-model="check1" style="margin-left: 8px;">aaa</label>
+            <label><input type="checkbox" v-model="check2" style="margin-left: 8px;">bbb</label>
+            <label><input type="checkbox" v-model="check3" style="margin-left: 8px;">ccc</label>
+          </div>
+          <div class="col-md-6"> 
+          {{check1}},{{check2}},{{check3}}
+          </div>
+        </div>
+	<!-- radio -->
+        <div class="row"> 
+          <div class="col-md-6"> 
+            <label><input type="radio" v-model="radio1" value="aaa" style="margin-left: 8px;">aaa</label>
+            <label><input type="radio" v-model="radio1" value="bbb" style="margin-left: 8px;">bbb</label>
+            <label><input type="radio" v-model="radio1" value="ccc" style="margin-left: 8px;">ccc</label>
+          </div>
+          <div class="col-md-6"> 
+            {{radio1}}
+          </div>
+        </div>
+	<!-- select -->
+        <div class="row"> 
+          <div class="col-md-6"> 
+            <select name="select1" v-model="select1">
+              <option value="aaa">AAA</optioin>
+              <option value="bbb">BBB</optioin>
+              <option value="ccc">CCC</optioin>
+            </select>
+          </div>
+          <div class="col-md-6"> 
+            {{select1}}
+          </div>
+        </div>
+	<!-- アコーディオン -->
+        <div class="row">
+          <div class="col-md-6"> 
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">aaa</a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <span>AAA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+	<!-- タブ -->
+        <div class="row">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#route_01" aria-controls="r_01" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;OpenStreetMap</a></li>
+                <li role="presentation"><a href="#route_02" aria-controls="r_02" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;aaa</a></li>
+                <li role="presentation"><a href="#route_03" aria-controls="r_03" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;bbb</a></li>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="route_01">
+		  <div id="map" style="height:600px;width:100%;"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="route_02">
+                  AAA
+                </div>
+                <div role="tabpanel" class="tab-pane" id="route_03">
+                  BBB
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+	<!-- OpenStreetMap -->
+      </div>
+      <!-- modal dislogs -->
+      <div id="modal1" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">About this application</h4>
+            </div>
+            <div class="modal-body">
+              <p>Hello World</p>
+              <p>
+              <input type="text" class="form-control">
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" v-on:click="closeDialog">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- <div id="app"> -->
+    <!-- My Application JS -->
+    <script src="app.js"></script>
+  </body>
+</html>
+
