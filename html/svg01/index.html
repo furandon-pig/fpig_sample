@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SVGサンプル</title>
+  </head>
+  <body>
+    <p>
+      <ul>
+        <li><a href="https://dev.to/imtraptir/bend-it-like-trapti-a-svg-logo-3e9k">Bend It Like Trapti - a SVG logo</a>
+      </ul>
+    </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500px" height="100px" viewBox="0 0 300 100" style="border: thin solid;">
+      <title>SVG Logo sample</title>
+      <path id="curve-path" d="M 0 60 C 140 90 190 0 290 50 " stroke-width="3" stroke="#f5b326" fill="none"></path>
+      <text font-size="30px" x="0" y="0" letter-spacing="1px">
+        <textPath xlink:href="#curve-path">
+          <tspan font-size="70px" dy="25">T </tspan><tspan dx="-28">rapti</tspan>
+          <tspan font-size="70px" dx="10" dy="2"> R </tspan><tspan dx="-17">ahangdale</tspan>
+        </textPath>
+      </text>
+    </svg>
+  </body>
+</html>
